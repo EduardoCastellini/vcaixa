@@ -3,15 +3,22 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class MovementsSchema extends Schema {
+class CashMovementSchema extends Schema {
   up () {
-    this.create('movements', (table) => {
+    this.create('cash_movements', (table) => {
       table.increments()
       table
         .integer('user_id')
         .unsigned()
         .references('id')
         .inTable('users')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
+      table
+        .integer('cashier_id')
+        .unsigned()
+        .references('id')
+        .inTable('cashiers')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
       table
@@ -29,8 +36,8 @@ class MovementsSchema extends Schema {
   }
 
   down () {
-    this.drop('movements')
+    this.drop('cash_movements')
   }
 }
 
-module.exports = MovementsSchema
+module.exports = CashMovementSchema

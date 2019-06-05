@@ -5,14 +5,10 @@ const Route = use('Route')
 Route.post('/users', 'UserController.create')
 Route.post('/sessions', 'SessionController.create')
 
-Route.resource('categories', 'CategoryController')
+Route.resource('Categorias', 'CategoryController')
   .apiOnly()
   .middleware('auth')
 
-Route.resource('Movements', 'MovementController')
-  .apiOnly()
-  .middleware('auth')
-
-Route.resource('Cashier', 'CashierController')
+Route.resource('Caixa', 'CashierController')
   .apiOnly()
   .middleware('auth')

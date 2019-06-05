@@ -8,9 +8,9 @@ class Category extends Model {
         return this.belongsTo('App/Models/User')
     }
 
-    movement () {
-        return this.hasMany('App/Models/Movement')
-      }
+    cashmovement () {
+        return this.hasMany('App/Models/Cashmovement')
+    }
 }
 
 module.exports = Category

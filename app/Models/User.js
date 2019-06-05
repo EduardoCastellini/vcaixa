@@ -39,8 +39,12 @@ class User extends Model {
     return this.hasMany('App/Models/Category')
   }
 
-  movement () {
-    return this.hasMany('App/Models/Movement')
+  cashmovement () {
+    return this.hasMany('App/Models/CashMovement')
+  }
+
+  cashier () {
+    return this.hasMany('App/Models/Cashier')
   }
 
 }

@@ -1,11 +1,9 @@
 'use strict'
-const Movement = use('App/Models/Movement')
 
-class MovementController {
- 
-  async index ({ }) {
-    const Movements = Movement.all()
-    return Movements
+
+class CashMovementController {
+
+  async index ({ request, response, view }) {
   }
 
 
@@ -16,7 +14,7 @@ class MovementController {
   async show ({ params, request, response, view }) {
   }
 
- 
+
   async update ({ params, request, response }) {
   }
 
@@ -25,4 +23,4 @@ class MovementController {
   }
 }
 
-module.exports = MovementController
+module.exports = CashMovementController
