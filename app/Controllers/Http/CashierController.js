@@ -9,7 +9,11 @@ class CashierController {
   }
 
 
-  async store ({ request, response }) {
+  async store ({ auth, request, response }) {
+    const { id } = auth.user
+    const data = request.only(['description', 'saldo'])
+    const cashier = await Cashier.create({...data, user_id: id})
+    return cashier
   }
 
 

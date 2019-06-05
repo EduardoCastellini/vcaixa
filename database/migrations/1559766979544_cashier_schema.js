@@ -14,7 +14,7 @@ class CashierSchema extends Schema {
         .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
-      table.string('descrition')
+      table.string('description')
       table.decimal('saldo').notNullable()
       table.timestamps()
     })
