@@ -1,4 +1,5 @@
 'use strict'
+const CashMovement = use('App/Models/CashMovement')
 
 
 class CashMovementController {
@@ -7,7 +8,20 @@ class CashMovementController {
   }
 
 
-  async store ({ request, response }) {
+  async store ({ auth, request, response }) {
+    const { id } = auth.user
+
+    const data = request.only([
+      'cashier_id', 
+      'categories_id', 
+      'type', 
+      'value',
+      'description'
+    ])
+
+    const cashMovement = await CashMovement.create({...data, user_id: id})
+
+    return cashMovement
   }
 
 

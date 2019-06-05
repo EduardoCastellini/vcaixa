@@ -12,3 +12,7 @@ Route.resource('Categorias', 'CategoryController')
 Route.resource('Caixa', 'CashierController')
   .apiOnly()
   .middleware('auth')
+
+Route.resource('MovimentoCaixa', 'CashMovementController')
+  .apiOnly()
+  .middleware('auth')

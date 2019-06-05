@@ -8,7 +8,6 @@ class CashierController {
     return cashier
   }
 
-
   async store ({ auth, request, response }) {
     const { id } = auth.user
     const data = request.only(['description', 'saldo'])
@@ -16,17 +15,20 @@ class CashierController {
     return cashier
   }
 
-
-  async show ({ params, request, response, view }) {
+  async show ({ params }) {
+    const cashier = await Cashier.findOrFail(params.id)
+    return cashier
   }
-
 
   async update ({ params, request, response }) {
   }
 
-
-  async destroy ({ params, request, response }) {
+  async destroy ({ params, response }) {
+    const cashier = await Cashier.findOrFail(params.id)
+    await cashier.delete()
+    return cashier
   }
+
 }
 
 module.exports = CashierController
