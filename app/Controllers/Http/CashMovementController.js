@@ -28,9 +28,9 @@ class CashMovementController {
       .from('cashiers')
       .where({id: 1} )
 
-    const saldoA = saldo + value
+    //const saldoA = saldo + value
 
-    return saldoA
+    return saldo
   }
   
 
