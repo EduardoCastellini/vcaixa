@@ -11,8 +11,8 @@ class CategoryController {
   async store ({ auth, request, response }) {
     const { id } = auth.user
     const data = request.only(['description'])
-    const category = await Category.create({...data, user_id: id})
-    return category
+    const categories = await Category.create({...data, user_id: id})
+    return categories
   }
 
   async show ({ params }) {

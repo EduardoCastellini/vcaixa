@@ -4,12 +4,13 @@
 const Model = use('Model')
 
 class Cashier extends Model {
-    user () {
-        return this.belongsTo('App/Models/User')
+
+    cashMovement () {
+        return this.hasMany('App/Models/CashMovement')
     }
 
-    cashmovement () {
-        return this.hasMany('App/Models/CashMovement')
+    static get hidden(){
+        return ["updated_at", "created_at", "user_id", "id", "description"]
     }
 }
 

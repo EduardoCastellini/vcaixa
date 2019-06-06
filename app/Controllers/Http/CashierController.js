@@ -4,7 +4,10 @@ const Cashier = use('App/Models/Cashier')
 class CashierController {
 
   async index ({ request, response, view }) {
-    const cashier = Cashier.all()
+    const cashier = Cashier
+      .query()
+      .with('cashMovement')
+      .fetch()
     return cashier
   }
 
@@ -16,14 +19,16 @@ class CashierController {
   }
 
   async show ({ params }) {
-    const cashier = await Cashier.findOrFail(params.id)
+    const cashier = await Cashier
+    .query()
+    .with('cashMovement')
+    .where("id", params.id)
+    .first();
+
     return cashier
   }
 
-  async update ({ params, request, response }) {
-  }
-
-  async destroy ({ params, response }) {
+  async destroy ({ params }) {
     const cashier = await Cashier.findOrFail(params.id)
     await cashier.delete()
     return cashier
