@@ -5,6 +5,10 @@ const Model = use('Model')
 
 class Category extends Model {
 
+    user () {
+        return this.hasOne('App/Models/User')
+    }
+
     static get hidden(){
         return ["created_at", "updated_at", "user_id" ]
     }

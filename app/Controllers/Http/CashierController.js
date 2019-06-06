@@ -3,11 +3,8 @@ const Cashier = use('App/Models/Cashier')
 
 class CashierController {
 
-  async index ({ request, response, view }) {
-    const cashier = Cashier
-      .query()
-      .with('cashMovement')
-      .fetch()
+  async index ({ params, request, response, view }) {
+    const cashier = Cashier.all()
     return cashier
   }
 
