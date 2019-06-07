@@ -3,11 +3,11 @@ const Cashier = use('App/Models/Cashier')
 
 class CashierController {
 
-  async index ({ params }) {
+  async index (auth) {
     const cashier = Cashier
     .query()
     .with('cashMovement')
-    .first();
+    .fetch();
     return cashier
   }
 
