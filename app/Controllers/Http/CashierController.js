@@ -3,12 +3,15 @@ const Cashier = use('App/Models/Cashier')
 
 class CashierController {
 
-  async index ({ params, request, response, view }) {
-    const cashier = Cashier.all()
+  async index ({ params }) {
+    const cashier = Cashier
+    .query()
+    .with('cashMovement')
+    .first();
     return cashier
   }
 
-  async store ({ auth, request, response }) {
+  async store ({ auth, request}) {
     const { id } = auth.user
     const data = request.only(['description', 'saldo'])
     const cashier = await Cashier.create({...data, user_id: id})
