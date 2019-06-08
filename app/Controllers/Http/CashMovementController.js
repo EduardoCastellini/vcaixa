@@ -12,16 +12,13 @@ class CashMovementController {
 
   async store ({ auth, request }) {
     const { id } = auth.user
-    const data = request.only([
-      'cashier_id',
-      'categories_id', 
-      'type', 
-      'value',
-      'description'
-    ])
+    const data = request.only([ 'cashier_id','categories_id','type','value','description'])
+    if (!await Database.table('cashiers').where({id:data.cashier_id}).where({user_id: id}).first()){
+      return 'Erro, Caixa não liberado para este Usuario'
+    }
+    /**Grava Registro no BD */
     const cashMovement = await CashMovement.create({...data, user_id: id})
-
-    /**Ajustando Saldo */
+    /**Atualizando Saldo */
     const value = request.input('value')
     const cashier_id = request.input('cashier_id')
     const type = request.input('type')
@@ -32,13 +29,10 @@ class CashMovementController {
     } if ((type == 'S') || (type == 's')) {
         saldo = saldo - value
     }
-    const retorno = await Database.table('cashiers').where({id: cashier_id}).update('saldo',saldo)
-    if (retorno == 1) {
-      return cashMovement
-    }else {
-      return 'Erro'
+    if (!await Database.table('cashiers').where({id: cashier_id}).update('saldo',saldo)) {
+      return 'Erro ao atualizar Saldo'
     }
-    
+    return cashMovement
   }
   
   async show ({ params }) {
