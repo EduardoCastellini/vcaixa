@@ -3,11 +3,9 @@ const Cashier = use('App/Models/Cashier')
 
 class CashierController {
 
-  async index (auth) {
-    const cashier = Cashier
-    .query()
-    .with('cashMovement')
-    .fetch();
+  async index ({auth}) {
+    const { id } = auth.user
+    const cashier = Cashier.query().where({user_id:id}).fetch();
     return cashier
   }
 
@@ -18,20 +16,21 @@ class CashierController {
     return cashier
   }
 
-  async show ({ params }) {
-    const cashier = await Cashier
-    .query()
-    .with('cashMovement')
-    .where("id", params.id)
-    .first();
-
+  async show ({ params, auth, response }) {
+    const cashier = await Cashier.findOrFail(params.id)
+    if (cashier.user_id !== auth.user.id){
+      return response.status(401).send({ error: 'Not authorized' })
+    }
     return cashier
   }
 
-  async destroy ({ params }) {
+  async destroy ({ params, auth, response }) {
     const cashier = await Cashier.findOrFail(params.id)
+    if (cashier.user_id !== auth.user.id){
+      return response.status(401).send({ error: 'Not authorized' })
+    }
     await cashier.delete()
-    return cashier
+    return cashier.id
   }
 
 }
