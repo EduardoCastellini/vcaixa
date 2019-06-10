@@ -1,7 +1,6 @@
 'use strict'
 const CashMovement = use('App/Models/CashMovement')
 const Database = use('Database')
-const Cashier = use('App/Models/Cashier')
 
 class CashMovementController {
 

@@ -5,8 +5,9 @@ class CashierController {
 
   async index ({auth}) {
     const { id } = auth.user
-    const cashier = Cashier.query().where({user_id:id}).fetch();
-    return cashier
+    const resCashier= await Cashier.query().where({user_id: id}).with('cashMovement').fetch()
+    return resCashier
+
   }
 
   async store ({ auth, request}) {
@@ -17,7 +18,7 @@ class CashierController {
   }
 
   async show ({ params, auth, response }) {
-    const cashier = await Cashier.findOrFail(params.id)
+    const cashier = await Cashier.query().where({id: params.id}).with('cashMovement').first()
     if (cashier.user_id !== auth.user.id){
       return response.status(401).send({ error: 'Not authorized' })
     }

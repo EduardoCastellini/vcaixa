@@ -13,6 +13,10 @@ class Cashier extends Model {
     cashMovement () {
         return this.hasMany('App/Models/CashMovement')
     }
+
+    category () {
+        return this.hasOne('App/Models/Categoryt')
+    }
     
     static get hidden(){
         return ["updated_at", "created_at", "user_id", "id"]

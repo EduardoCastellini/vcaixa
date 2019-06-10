@@ -9,6 +9,10 @@ class Category extends Model {
         return this.hasOne('App/Models/User')
     }
 
+    cashMovement () {
+        return this.hasMany('App/Models/cashMovement')
+    }
+
     static get hidden(){
         return ["created_at", "updated_at", "user_id" ]
     }
