@@ -27,7 +27,7 @@ module.exports = {
   | to encrypt cookies, sessions and other sensitive data.
   |
   */
-  appKey: Env.getOrFail('APP_KEY'),
+  appKey: Env.getOrFail('BvqSIKcZFkUTDTX9hGie2A3YRTEay70U'),
 
   http: {
     /*
