@@ -1,6 +1,6 @@
 API vCaixa, foi desenvolvida ultilizando o framework Adonis JS e Banco de dados PostgreSQL.
 
-Link da API em produção, no o heroku:
+Link da API em produção, no o heroku: https://still-castle-92030.herokuapp.com
 
 Para testar a API eu ultlizei o insominia, segue link para download:
 https://insomnia.rest/download/
@@ -8,7 +8,7 @@ https://insomnia.rest/download/
 ROTAS DISPONIBILIZADAS
 
 USUARIOS / SESSÃO:
-    Para cadastrar usuario de acesso ultlize a seguinte rota.
+    Para cadastrar usuario de acesso ultlize a seguinte rota
     POST: http://localhost:3333/users
     JSON:{
 	        "username": "Eduardo Castellini",
@@ -21,6 +21,7 @@ USUARIOS / SESSÃO:
     JSON:{
 	        "email": " ",
 	        "password": " "
+        }
         
 
 
