@@ -16,23 +16,12 @@ class CashMovementController {
     if (!await Database.table('cashiers').where({id:data.cashier_id}).where({user_id: id}).first()){
       return response.status(401).send({ error: 'Not authorized' })
     }
-    /**Grava Registro no BD */
     const cashMovement = await CashMovement.create({...data, user_id: id})
-    /**Atualizando Saldo */
+
     const value = request.input('value')
     const cashier_id = request.input('cashier_id')
     const type = request.input('type')
-    const  cashier = await Database.select('saldo').from('cashiers').where({id: cashier_id})
-    var saldo = cashier[0]['saldo']
-
-    if ((type == 'E') || (type == 'e')){
-        saldo = saldo + value
-    } if ((type == 'S') || (type == 's')) {
-        saldo = saldo - value
-    }
-    if (!await Database.table('cashiers').where({id: cashier_id}).update('saldo',saldo)) {
-      return 'Erro ao atualizar Saldo'
-    }
+    CashMovement.updatingBalance(cashier_id, value, type)
     return cashMovement
   }
   
@@ -46,10 +35,23 @@ class CashMovementController {
 
   async destroy ({ params, auth, response}) {
     const cashMovement = await CashMovement.findOrFail(params.id)
+    const cashier_id = cashMovement.cashier_id
+    const movement = await Database.select('value').from('cash_movements').where({id: params.id})
+    var value = parseInt(movement[0]['value'])
+    var type = cashMovement.type
+
     if (cashMovement.user_id !== auth.user.id){
       return response.status(401).send({ error: 'Not authorized' })
     }
     await cashMovement.delete()
+
+    if ((type == 'E') || (type == 'e')){
+      type = 'S'
+    } else if ((type == 'S') || (type == 's')) {
+      type = 'E'
+    }
+    await CashMovement.updatingBalance(cashier_id, value, type)
+
     return cashMovement.id
   }
 }
