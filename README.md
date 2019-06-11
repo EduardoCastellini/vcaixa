@@ -4,12 +4,14 @@ Link da API em produção, no o Heroku: https://still-castle-92030.herokuapp.com
 
 Para testar a API eu ultlizei o insominia, link para download: https://insomnia.rest/download/
 
-<h1>ROTAS DISPONIVEIS PARA CONSUMIR A API<h1>
+ROTAS DISPONIVEIS PARA CONSUMIR A API <br>
 
 USUARIOS / SESSÃO
 Para cadastrar um novo usuario, ultlize a seguinte rota:<br>
     POST: https://still-castle-92030.herokuapp.com/users <br>
-    JSON: {
+
+    JSON: 
+    {
 	    "username": "Eduardo Castellini",
 	    "email": "eduardo.castellini@hotmail.com.br",
 	    "password": "123456"
@@ -17,7 +19,9 @@ Para cadastrar um novo usuario, ultlize a seguinte rota:<br>
 
 Para Autenticar na API, ultilize a rota:<br>
     POST: https://still-castle-92030.herokuapp.com/sessions <br>
-    JSON: {
+
+    JSON: 
+    {
 	    "email": " ",
 	    "password": " "
     }
@@ -27,7 +31,9 @@ ________________________________________________________________________________
 CAIXA
 Cadastrar novo caixa:<br>
     POST: https://still-castle-92030.herokuapp.com/caixa <br>
-    JSON: {
+
+    JSON: 
+    {
 	    "description": "",
 	    "saldo": 
     }
@@ -50,7 +56,9 @@ ________________________________________________________________________________
 CATEGORIAS:
 Cadastrar uma nova categoria:<br>
     POST: https://still-castle-92030.herokuapp.com/categorias <br>
-    JSON: {
+
+    JSON: 
+    {
 	    "description": ""
     }
 
@@ -72,7 +80,9 @@ ________________________________________________________________________________
 MOVIMENTOS DO CAIXA:
 Cadastrar um novo movimento de caixa:<br>
     POST: https://still-castle-92030.herokuapp.com/movimentocaixa <br>
-    JSON: {
+
+    JSON: 
+    {
 	    "cashier_id": 1,
 	    "categories_id": 3,
 	    "type": "s",    
