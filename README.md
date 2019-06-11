@@ -26,11 +26,11 @@ Para Autenticar na API, ultilize a rota:<br>
 	    "password": " "
     }
 
-
-***Para as proximas Rotas, ultlizar a opção de autenticação "Bearer Token" e no campo TOKEN informar valor que é retornado pela rota /sessions ***
+<br>
+**Para as proximas Rotas, ultlizar a opção de autenticação "Bearer Token" e no campo TOKEN informar valor que é retornado pela rota /sessions (Autenticação) ***
 ______________________________________________________________________________________________________
 
-CAIXA
+CAIXA <br>
 Cadastrar novo caixa:<br>
     POST: https://still-castle-92030.herokuapp.com/caixa <br>
 
@@ -55,7 +55,7 @@ Deletar um caixa, (Passando como parametro na URL o ID do caixa), conforme o exe
 ______________________________________________________________________________________________________
 
 
-CATEGORIAS:
+CATEGORIAS <br>
 Cadastrar uma nova categoria:<br>
     POST: https://still-castle-92030.herokuapp.com/categorias <br>
 
@@ -79,7 +79,7 @@ Deletar uma categorias, (Passando como parametro na URL o ID da categorias), con
 ______________________________________________________________________________________________________
 
 
-MOVIMENTOS DO CAIXA:
+MOVIMENTOS DO CAIXA <br>
 Cadastrar um novo movimento de caixa:<br>
     POST: https://still-castle-92030.herokuapp.com/movimentocaixa <br>
 
@@ -102,11 +102,10 @@ Visualizar somente uma movimento,(passando como parametro na URL o ID do movimen
 
 Deletar um movimento, (Passando como parametro na URL o ID do movimento), conforme o exemplo abaixo:<br>
     DELETE: https://still-castle-92030.herokuapp.com/movimentocaixa/1
-
-
-
-
-
+<hr>
+<br>
+<br>
+<br>
 BAIXAR O PROJETO E RODAR EM SEU COMPUTADOR.
 
 Para executar o projeto, precisa ter instalado a CLI do do Adonis, Caso não tenha, execute o camando:
