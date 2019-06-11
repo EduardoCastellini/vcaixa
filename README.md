@@ -6,9 +6,9 @@ Para testar a API eu ultlizei o insominia, link para download: https://insomnia.
 
 <h1>ROTAS DISPONIVEIS PARA CONSUMIR A API<h1>
 
-<h3>USUARIOS / SESSÃO<h3>
+USUARIOS / SESSÃO
 Para cadastrar um novo usuario, ultlize a seguinte rota:<br>
-    POST: https://still-castle-92030.herokuapp.com/users
+    POST: https://still-castle-92030.herokuapp.com/users <br>
     JSON: {
 	    "username": "Eduardo Castellini",
 	    "email": "eduardo.castellini@hotmail.com.br",
@@ -16,7 +16,7 @@ Para cadastrar um novo usuario, ultlize a seguinte rota:<br>
     }
 
 Para Autenticar na API, ultilize a rota:<br>
-    POST: https://still-castle-92030.herokuapp.com/sessions
+    POST: https://still-castle-92030.herokuapp.com/sessions <br>
     JSON: {
 	    "email": " ",
 	    "password": " "
@@ -24,9 +24,9 @@ Para Autenticar na API, ultilize a rota:<br>
         
 ______________________________________________________________________________________________________
 
-<h3>CAIXA<h3>
+CAIXA
 Cadastrar novo caixa:<br>
-    POST: https://still-castle-92030.herokuapp.com/caixa
+    POST: https://still-castle-92030.herokuapp.com/caixa <br>
     JSON: {
 	    "description": "",
 	    "saldo": 
@@ -47,9 +47,9 @@ Deletar um caixa, (Passando como parametro na URL o ID do caixa), conforme o exe
 ______________________________________________________________________________________________________
 
 
-<h3>CATEGORIAS:<h3>
+CATEGORIAS:
 Cadastrar uma nova categoria:<br>
-    POST: https://still-castle-92030.herokuapp.com/categorias
+    POST: https://still-castle-92030.herokuapp.com/categorias <br>
     JSON: {
 	    "description": ""
     }
@@ -69,9 +69,9 @@ Deletar uma categorias, (Passando como parametro na URL o ID da categorias), con
 ______________________________________________________________________________________________________
 
 
-<h3>MOVIMENTOS DO CAIXA:<h3>
+MOVIMENTOS DO CAIXA:
 Cadastrar um novo movimento de caixa:<br>
-    POST: https://still-castle-92030.herokuapp.com/movimentocaixa
+    POST: https://still-castle-92030.herokuapp.com/movimentocaixa <br>
     JSON: {
 	    "cashier_id": 1,
 	    "categories_id": 3,
@@ -93,7 +93,7 @@ Deletar um movimento, (Passando como parametro na URL o ID do movimento), confor
 
 
 
-<h1>Baixar o projeto em sua maquina.<h1>
+Baixar o projeto em sua maquina.
 
 Para executar o projeto, precisa ter instalado a CLI do do Adonis, Caso não tenha, execute o camando:
 
@@ -109,13 +109,14 @@ $   cd vcaixa
 $   yarn install
 
 Ajuste o arquivo .env com as variaveis de ambiente, para acesso ao banco de dados PostgreSQL.
-Altere os campos:
-DB_CONNECTION=pg
-DB_HOST=127.0.0.1  **Confirmar o IP do host**
-DB_PORT=5432       **Cofirmar a Porta**
-DB_USER=           **usuario do banco**
-DB_PASSWORD=       **senha do banco**
-DB_DATABASE=       **nome da base de dados**
+Altere os campos: <br>
+
+DB_CONNECTION=pg <br>
+DB_HOST=127.0.0.1  **Confirmar o IP do host**<br>
+DB_PORT=5432       **Cofirmar a Porta**<br>
+DB_USER=           **usuario do banco**<br>
+DB_PASSWORD=       **senha do banco**<br>
+DB_DATABASE=       **nome da base de dados**<br>
 
 Na raiz do projetos executar o comando a seguir para atualizar a base de dados conforme as migrastions.
 
@@ -123,6 +124,6 @@ $   adonis migration:run
 
 Apos rodar as migration na base de dados, execute o seguinte comando para startar a API.
 
-$   adonis serve --dev
-        OU
+$   adonis serve --dev <br>
+        OU <br>
 $   yarn start
