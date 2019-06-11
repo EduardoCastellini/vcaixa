@@ -36,7 +36,7 @@ class CashMovementController {
     return cashMovement
   }
   
-  async show ({ params, auth }) {
+  async show ({ params, auth, response }) {
     const cashMovement = await CashMovement.findOrFail(params.id)
     if (cashMovement.user_id !== auth.user.id){
       return response.status(401).send({ error: 'Not authorized' })
