@@ -25,7 +25,9 @@ Para Autenticar na API, ultilize a rota:<br>
 	    "email": " ",
 	    "password": " "
     }
-        
+
+
+***Para as proximas Rotas, ultlizar a opção de autenticação "Bearer Token" e no campo TOKEN informar valor que é retornado pela rota /sessions ***
 ______________________________________________________________________________________________________
 
 CAIXA
@@ -103,7 +105,9 @@ Deletar um movimento, (Passando como parametro na URL o ID do movimento), confor
 
 
 
-Baixar o projeto em sua maquina.
+
+
+BAIXAR O PROJETO E RODAR EM SEU COMPUTADOR.
 
 Para executar o projeto, precisa ter instalado a CLI do do Adonis, Caso não tenha, execute o camando:
 
@@ -122,11 +126,11 @@ Ajuste o arquivo .env com as variaveis de ambiente, para acesso ao banco de dado
 Altere os campos: <br>
 
 DB_CONNECTION=pg <br>
-DB_HOST=127.0.0.1  **Confirmar o IP do host**<br>
-DB_PORT=5432       **Cofirmar a Porta**<br>
-DB_USER=           **usuario do banco**<br>
-DB_PASSWORD=       **senha do banco**<br>
-DB_DATABASE=       **nome da base de dados**<br>
+DB_HOST=127.0.0.1  (Confirmar o IP do host)<br>
+DB_PORT=5432       (Cofirmar a Porta)<br>
+DB_USER=           (usuario do banco)<br>
+DB_PASSWORD=       (senha do banco)<br>
+DB_DATABASE=       (nome da base de dados)<br>
 
 Na raiz do projetos executar o comando a seguir para atualizar a base de dados conforme as migrastions.
 
