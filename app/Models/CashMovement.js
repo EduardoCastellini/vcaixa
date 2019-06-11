@@ -14,6 +14,10 @@ class CashMovement extends Model {
         return this.hasOne('App/Models/Cashier')
     }
 
+    static get hidden(){
+        return ["updated_at", "user_id", "cashier_id"]
+    }
+
     static async updatingBalance(cashier_id, value, type){
         const  cashier = await Database.select('saldo').from('cashiers').where({id: cashier_id})
         var saldo = cashier[0]['saldo']
@@ -25,7 +29,7 @@ class CashMovement extends Model {
         }
         
         if (!await Database.table('cashiers').where({id: cashier_id}).update('saldo',saldo)) {
-        return 'Error updating saldo'
+        return 'Error updating saldo!'
         }
     }
 

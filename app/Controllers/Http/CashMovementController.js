@@ -16,6 +16,9 @@ class CashMovementController {
     if (!await Database.table('cashiers').where({id:data.cashier_id}).where({user_id: id}).first()){
       return response.status(401).send({ error: 'Not authorized' })
     }
+    if ((data.type !== 'E') && (data.type !== 'e') && (data.type !== 'S') && (data.type !== 's')){
+      return response.status(401).send({ error: 'Type Invalid' })
+    }
     const cashMovement = await CashMovement.create({...data, user_id: id})
 
     const value = request.input('value')
@@ -51,7 +54,6 @@ class CashMovementController {
       type = 'E'
     }
     await CashMovement.updatingBalance(cashier_id, value, type)
-
     return cashMovement.id
   }
 }

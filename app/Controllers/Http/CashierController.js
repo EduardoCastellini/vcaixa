@@ -7,7 +7,6 @@ class CashierController {
     const { id } = auth.user
     const resCashier= await Cashier.query().where({user_id: id}).with('cashMovement').fetch()
     return resCashier
-
   }
 
   async store ({ auth, request}) {

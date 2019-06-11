@@ -109,10 +109,10 @@ $   cd vcaixa
 
 $   yarn install
 
-Ajuste o arquivo .env com as variáveis de ambiente, para acesso ao banco de dados PostgreSQL.
+Ajuste o arquivo .ENV com os dados para acesso ao banco de dados PostgreSQL.<br>
 Altere os campos: <br>
 
-DB_CONNECTION=pg 	 <br>
+DB_CONNECTION=pg    <br>
 DB_HOST=127.0.0.1  (Confirmar o IP do host)<br>
 DB_PORT=5432       (Cofirmar a Porta)<br>
 DB_USER=           (usuario do banco)<br>

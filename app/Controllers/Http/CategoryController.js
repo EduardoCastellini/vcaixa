@@ -20,9 +20,6 @@ class CategoryController {
     return categories
   }
 
-  async update ({ params, request, response }) {
-  }
-
   async destroy ({ params}) {
     const categories = await Category.findOrFail(params.id)
     await categories.delete()
