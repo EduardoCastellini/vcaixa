@@ -1,6 +1,6 @@
 API vCaixa, foi desenvolvida utilizando o framework Adonis JS e Banco de dados PostgreSQL.
 
-Link da API em produção, no o Heroku: https://still-castle-92030.herokuapp.com
+Link da API em produção, no Heroku: https://still-castle-92030.herokuapp.com
 
 Para testar a API utilizei o insominia, link para download: https://insomnia.rest/download/
 
