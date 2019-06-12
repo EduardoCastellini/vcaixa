@@ -19,7 +19,7 @@ class Cashier extends Model {
     }
     
     static get hidden(){
-        return ["updated_at", "created_at", "user_id", "id"]
+        return ["updated_at", "created_at", "user_id"]
     }
 
 }
