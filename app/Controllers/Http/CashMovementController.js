@@ -24,7 +24,7 @@ class CashMovementController {
     const value = request.input('value')
     const cashier_id = request.input('cashier_id')
     const type = request.input('type')
-    CashMovement.updatingBalance(cashier_id, value, type)
+    await CashMovement.updatingBalance(cashier_id, value, type)
     return cashMovement
   }
   

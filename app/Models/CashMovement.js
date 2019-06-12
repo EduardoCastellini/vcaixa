@@ -2,6 +2,7 @@
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
+const Cashier =use('./Cashier')
 const Database = use('Database')
 
 class CashMovement extends Model {
@@ -23,14 +24,15 @@ class CashMovement extends Model {
         var saldo = cashier[0]['saldo']
         
         if ((type == 'E') || (type == 'e')){
-            saldo = saldo + value
+            saldo = saldo += value
         } if ((type == 'S') || (type == 's')) {
-            saldo = saldo - value
-        }
+            saldo = saldo -= value
+        }    
         
         if (!await Database.table('cashiers').where({id: cashier_id}).update('saldo',saldo)) {
-        return 'Error updating saldo!'
+            return 'Error updating saldo!'
         }
+        
     }
 
 }
