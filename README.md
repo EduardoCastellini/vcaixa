@@ -77,9 +77,9 @@ Cadastrar um novo movimento de caixa:<br>
 
     JSON: 
     {
-        "cashier_id": 1,
-        "categories_id": 3,
-        "type": "s",    
+        "cashier_id": 7, (ID do Caixa)
+        "categories_id": 2, (ID da Categoria)
+        "type": "s", ***  ("S" para saida e "E" para entrada)
         "value": 00.00,
         "description": "diversos"
     }
@@ -128,4 +128,4 @@ Após rodar as migrations na base de dados, execute o seguinte comando para star
 
 $   adonis serve --dev <br>
         OU <br>
-$   yarn start
+$   npm start
