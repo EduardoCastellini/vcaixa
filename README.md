@@ -12,9 +12,9 @@ Para cadastrar um novo usuário, utilize a seguinte rota:<br>
 
     JSON: 
     {
-        "username": "Eduardo Castellini",
-        "email": "eduardo.castellini@hotmail.com.br",
-        "password": "123456"
+        "username": " ",
+        "email": " ",
+        "password": " "
     }
 
 Para Autenticar na API, utilize a rota:<br>
