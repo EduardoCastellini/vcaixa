@@ -20,9 +20,6 @@ class CashMovement extends Model {
     }
 
     static async updatingBalance(cashier_id, value, type){
-        //const  cashier = await Database.select('saldo').from('cashiers').where({id: cashier_id})
-        //var saldo = cashier[0]['saldo']
-        
         const cashier = await Cashier.findOrFail(cashier_id);
 
         if ((type == 'E') || (type == 'e')){
@@ -34,12 +31,6 @@ class CashMovement extends Model {
         if (! await cashier.save()){
             return 'Error updating saldo!'
         }
-        
-        /*
-        if (!await Database.table('cashiers').where({id: cashier_id}).update('saldo',saldo)) {
-            return 'Error updating saldo!'
-        }
-        */
     }
 
 }
